@@ -1,4 +1,4 @@
-# webshop2
+# webshop frontend
 
 > A Vue.js project
 
@@ -6,7 +6,18 @@
 
 ``` bash
 # install dependencies
+npm install -g vue-cli
+vue init webpack webshop
+-> Runtime + Compiler
+Install vue-router? Y
+Use ESLint to lint your code? Y
+-> Standard
+cd webshop
+npm i bootstrap-vue
+npm i axios
 npm install
+
+# copy the necessary code to the right place
 
 # serve with hot reload at localhost:8080
 npm run dev
