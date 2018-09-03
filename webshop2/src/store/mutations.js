@@ -15,7 +15,7 @@ export default {
   removefromcart(elem, step){
     elem.alap = Math.round((elem.alap - step) * 10) / 10;
     if (elem.alap==0){
-      del(state, elem);
+      del(elem);
     }
   },
   del(state, elem){
@@ -30,7 +30,7 @@ export default {
     state.search='';
     state.sortType='';
     state.selected='';
-    onCancel(state);
+    initrouter();
   },
   create_selection(state) {
     let mySet = new Set();
@@ -43,11 +43,7 @@ export default {
                                      })
     );
   },
-  onCancel(state){
-    initrouter(state);
-    console.log('Quit cart');
-  },
-  onClose(state) {
+  onClose() {
     state.rendeles=[];
     console.log('Reset cart');
   },
@@ -91,7 +87,7 @@ export default {
           };
       state.itemsPerRow=state.szurttomb.length;
       state.szurttombhossz=state.szurttomb.length;
-      categoryrouter(state);
+      categoryrouter();
     },
     szur2(state){
       state.pageNumber=0;
