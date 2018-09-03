@@ -54,39 +54,29 @@ export default {
   initrouter(state){
     state.url=`/`;
     this.$router.push(state.url);
-    state.csakadatok=false;
-    state.csakkosar=false;
     state.csaktermekek=true;
   },
   searchrouter(state){
     state.url=`/kereses/${state.search}/`;
     this.$router.push(state.url);
     state.csaktermekek=true;
-    state.csakadatok=false
-    state.csakkosar=false;
     state.search='';
   },
   categoryrouter(state){
     state.url=`/${state.selected}/${state.sortType+"_szerinti_rendezes"}/`;
     this.$router.push(state.url);
     state.csaktermekek=true;
-    state.csakadatok=false
-    state.csakkosar=false;
   },
   basketrouter(state){
     state.url=`/kosar`;
     this.$router.push(state.url);
     state.search='';
     state.csaktermekek=false;
-    state.csakadatok=false
-    state.csakkosar=true;
   },
   datarouter(state){
     state.url=`/adatok`;
     this.$router.push(state.url);
-    state.csakkosar=false;
     state.csaktermekek=false;
-    state.csakadatok=true
   },
   szur(state) {
     state.pageNumber=0;
