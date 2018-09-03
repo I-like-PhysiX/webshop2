@@ -95,6 +95,7 @@
 <script>
 import axios from 'axios'
 import {mapGetters} from 'vuex';
+import { mapMutations } from 'vuex';
 export default {
   name: "app",
   data() {
@@ -104,28 +105,8 @@ export default {
   watch: {
    },
   methods: {
-    updatepageNumber(diff){
-      this.$store.commit('updatepageNumber', diff);
-    },
-    init(){
-      this.$store.commit('init');
-    },
-    initrouter(){
-      this.$store.commit('initrouter');
-    },
-    basketrouter(){
-      this.$store.commit('basketrouter');
-    },
-    szur(){
-      this.$store.commit('szur');
-    },
-    szur2(){
-      this.$store.commit('szur2');
-    },
-    create_selection(){
-      this.$store.commit('create_selection');
-    }
-},
+    ...mapMutations(['updatepageNumber','init','initrouter','basketrouter','szur','szur2','create_selection'])
+  },
   mounted() {
     this.create_selection();
     this.init();
