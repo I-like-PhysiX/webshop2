@@ -12,7 +12,7 @@ vue init webpack webshop2
 Install vue-router? Y
 Use ESLint to lint your code? Y
 -> Standard
-cd webshop
+cd webshop2
 npm i bootstrap-vue
 npm i axios
 npm i vuex
