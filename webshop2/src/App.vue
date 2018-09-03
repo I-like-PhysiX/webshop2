@@ -24,7 +24,7 @@
              </b-btn>
              <b-btn
                     class="exPopoverReactive1"
-                    v-on:click="onCancel()"
+                    v-on:click="initrouter()"
                     v-if="!csaktermekek"
                     size="md"
                     variant="dark"
@@ -110,8 +110,8 @@ export default {
     init(){
       this.$store.commit('init');
     },
-    onCancel(){
-      this.$store.commit('onCancel');
+    initrouter(){
+      this.$store.commit('initrouter');
     },
     basketrouter(){
       this.$store.commit('basketrouter');
