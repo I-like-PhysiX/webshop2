@@ -18,9 +18,6 @@ export default {
   rendeles(state){
     return state.rendeles;
   },
-  csakkosar(state){
-    return state.csakkosar
-  },
   species(state){
     return state.species;
   },
