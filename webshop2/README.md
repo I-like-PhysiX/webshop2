@@ -7,7 +7,7 @@
 ``` bash
 # install dependencies
 npm install -g vue-cli
-vue init webpack webshop
+vue init webpack webshop2
 -> Runtime + Compiler
 Install vue-router? Y
 Use ESLint to lint your code? Y
