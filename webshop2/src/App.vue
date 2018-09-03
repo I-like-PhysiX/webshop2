@@ -25,7 +25,7 @@
              <b-btn
                     class="exPopoverReactive1"
                     v-on:click="onCancel()"
-                    v-if="csakkosar"
+                    v-if="!csaktermekek"
                     size="md"
                     variant="dark"
                     style="text-align: center">
@@ -77,6 +77,13 @@
 
   <router-view></router-view>
 
+  <div class="text-mid" v-if="csaktermekek">
+    <div class="center" style="text-align: center;">
+      <b-button :disabled="pageNumber == 0 ? true : false" class="pagination-btn" v-on:click="updatepageNumber(-1)"> < </b-button>
+      {{pageNumber}}/{{pageCount}}
+      <b-button :disabled="pageNumber == pageCount ? true : false" class="pagination-btn" v-on:click="updatepageNumber(1)"> > </b-button>
+    </div>
+  </div>
   <b-navbar toggleable="md" variant="dark" class="bottom">
     <div class="footer" style="color:white;  margin: 0px auto;">
       © 2018. Minden jog fenntartva
@@ -88,18 +95,18 @@
 <script>
 import axios from 'axios'
 import {mapGetters} from 'vuex';
-
 export default {
   name: "app",
   data() {
     return {
-
     }
   },
   watch: {
-
    },
   methods: {
+    updatepageNumber(diff){
+      this.$store.commit('updatepageNumber', diff);
+    },
     init(){
       this.$store.commit('init');
     },
@@ -118,7 +125,6 @@ export default {
     create_selection(){
       this.$store.commit('create_selection');
     }
-
 },
   mounted() {
     this.create_selection();
@@ -128,9 +134,8 @@ export default {
     console.log("App init");
     */
   },
-
   computed: {
-    ...mapGetters(['sortOptions','sortType','species','csakkosar','rendeles','csaktermekek']),
+    ...mapGetters(['pageCount','pageNumber','sortOptions','sortType','species','rendeles','csaktermekek']),
     selected:{
         get(){ return this.$store.getters.selected; },
         set( value ){ this.$store.commit("selected", value );}
@@ -145,7 +150,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style scoped>
