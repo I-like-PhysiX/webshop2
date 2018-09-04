@@ -1,3 +1,5 @@
+import router from '../router'
+
 export default {
   updatepageNumber(state, diff){
     state.pageNumber+=diff;
@@ -42,30 +44,30 @@ export default {
     })
   );
 },
-onClose() {
+resetcart(state) {
   state.rendeles=[];
   console.log('Reset cart');
 },
 initrouter(state){
-  this.$router.push(`/`);
+  router.push(`/`);
   state.csaktermekek=true;
 },
 searchrouter(state){
-  this.$router.push(`/kereses/${state.search}/`);
+  router.push(`/kereses/${state.search}/`);
   state.csaktermekek=true;
   state.search='';
 },
 categoryrouter(state){
-  this.$router.push(`/${state.selected}/${state.sortType+"_szerinti_rendezes"}/`);
+  router.push(`/${state.selected}/${state.sortType+"_szerinti_rendezes"}/`);
   state.csaktermekek=true;
 },
 basketrouter(state){
-  this.$router.push(`/kosar/`);
+  router.push(`/kosar/`);
   state.search='';
   state.csaktermekek=false;
 },
 datarouter(state){
-  this.$router.push(`/adatok/`);
+  router.push(`/adatok/`);
   state.csaktermekek=false;
 },
 szur(state) {
@@ -116,7 +118,7 @@ input4(state, payload){
 input5(state, payload){
   state.input5=payload;
 },
-onReset(state, payload){
+onReset(state){
   state.input1='';
   state.input2='';
   state.input3='';
