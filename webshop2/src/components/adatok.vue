@@ -64,7 +64,7 @@ placeholder="példa@email.com">
 <br>
 <b-button-group class="responsive">
   <b-btn v-on:click="basketrouter()" size="sm" variant="primary">Kosár</b-btn>
-  <b-button type="reset" size="sm" variant="danger">Tötlés</b-button>
+  <b-button type="reset" size="sm" variant="danger">Törlés</b-button>
   <b-button type="submit" size="sm" variant="success">Vásárlás</b-button>
 </b-button-group>
 </b-form>
@@ -79,6 +79,7 @@ placeholder="példa@email.com">
 
 import {mapGetters} from 'vuex';
 import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'adatok',
@@ -93,13 +94,9 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['basketrouter']),
-    onReset (event) {
-      event.preventDefault();
-      this.$store.commit('onReset', event);
-    },
-    onSubmit (event) {
-      event.preventDefault();
+    ...mapMutations(['basketrouter','onReset']),
+    onSubmit (evt) {
+      evt.preventDefault();
       console.log('Make API request');
       this.showModal();
     },
@@ -108,7 +105,8 @@ export default {
     },
     hideModal () {
       this.$refs.myModalRef.hide();
-      this.$store.commit('onClose');
+      this.$store.commit('onReset');
+      this.$store.commit('resetcart');
       this.$store.commit('init');
     }
   },
