@@ -48,7 +48,7 @@
     <br>
     <br>
     <b-button-group class="responsive">
-      <b-btn v-on:click="onClose()" size="sm" variant="danger" :disabled="rendeles==0 ? true : false">Kosár kiürítése</b-btn>
+      <b-btn v-on:click="resetcart()" size="sm" variant="danger" :disabled="rendeles==0 ? true : false">Kosár kiürítése</b-btn>
       <b-btn v-on:click="datarouter()" size="sm" variant="success" :disabled="rendeles==0 ? true : false">Adatok</b-btn>
     </b-button-group>
   </div>
@@ -72,7 +72,7 @@ export default {
 
   },
   methods: {
-    ...mapMutations(['removefromcart','addtocart','del','onClose','datarouter'])
+    ...mapMutations(['removefromcart','addtocart','del','resetcart','datarouter'])
   },
   mounted() {
     console.log('kosar init');
