@@ -77,9 +77,7 @@ placeholder="példa@email.com">
 
 <script>
 
-import {mapGetters} from 'vuex';
-import { mapMutations } from 'vuex';
-import { mapActions } from 'vuex';
+import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 
 export default {
   name: 'adatok',
@@ -95,6 +93,7 @@ export default {
 
   methods: {
     ...mapMutations(['basketrouter','onReset']),
+    ...mapActions(['reset_and_init']),
     onSubmit (evt) {
       evt.preventDefault();
       console.log('Make API request');
@@ -104,10 +103,7 @@ export default {
       this.$refs.myModalRef.show();
     },
     hideModal () {
-      this.$refs.myModalRef.hide();
-      this.$store.commit('onReset');
-      this.$store.commit('resetcart');
-      this.$store.commit('init');
+      this.reset_and_init();
     }
   },
 
@@ -117,23 +113,23 @@ export default {
 
   computed: {
     input1:{
-      get(){ return this.$store.getters.input1; },
+      get(){ return this.$store.state.input1; },
       set( value ){ this.$store.commit("input1", value );}
     },
     input2:{
-      get(){ return this.$store.getters.input2; },
+      get(){ return this.$store.state.input2; },
       set( value ){ this.$store.commit("input2", value );}
     },
     input3:{
-      get(){ return this.$store.getters.input3; },
+      get(){ return this.$store.state.input3; },
       set( value ){ this.$store.commit("input3", value );}
     },
     input4:{
-      get(){ return this.$store.getters.input4; },
+      get(){ return this.$store.state.input4; },
       set( value ){ this.$store.commit("input4", value );}
     },
     input5:{
-      get(){ return this.$store.getters.input5; },
+      get(){ return this.$store.state.input5; },
       set( value ){ this.$store.commit("input5", value );}
     }
   }
