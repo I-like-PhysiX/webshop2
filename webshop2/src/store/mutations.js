@@ -30,7 +30,6 @@ export default {
     state.search='';
     state.sortType='';
     state.selected='';
-    initrouter();
   },
   create_selection(state) {
     let mySet = new Set();
@@ -83,7 +82,6 @@ szur(state) {
   };
   state.itemsPerRow=state.szurttomb.length;
   state.szurttombhossz=state.szurttomb.length;
-  categoryrouter();
 },
 szur2(state){
   state.pageNumber=0;
@@ -91,32 +89,31 @@ szur2(state){
     state.szurttomb =state.tomb.filter(v => RegExp(state.search,'i').test(v.termek)).slice(0,9);
     state.itemsPerRow=state.szurttomb.length;
     state.szurttombhossz=state.szurttomb.length;
-    searchrouter(state);
   }
 },
-selected(state, payload){
-  state.selected=payload;
+selected(state, data){
+  state.selected=data;
 },
-sortType(state, payload){
-  state.sortType=payload;
+sortType(state, data){
+  state.sortType=data;
 },
-search(state, payload){
-  state.search=payload;
+search(state, data){
+  state.search=data;
 },
-input1(state, payload){
-  state.input1=payload;
+input1(state, data){
+  state.input1=data;
 },
-input2(state, payload){
-  state.input2=payload;
+input2(state, data){
+  state.input2=data;
 },
-input3(state, payload){
-  state.input3=payload;
+input3(state, data){
+  state.input3=data;
 },
-input4(state, payload){
-  state.input4=payload;
+input4(state, data){
+  state.input4=data;
 },
-input5(state, payload){
-  state.input5=payload;
+input5(state, data){
+  state.input5=data;
 },
 onReset(state){
   state.input1='';
