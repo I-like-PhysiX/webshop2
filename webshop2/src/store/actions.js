@@ -10,7 +10,7 @@ export default {
     }).then(() =>{
       commit('create_selection');
     }).then(() =>{
-      dispatch('init');
+      commit('init');
     })
     .catch((error) => {
       console.log(error);
@@ -31,6 +31,6 @@ export default {
   reset_and_init( {commit, dispatch} ) {
     commit('onReset');
     commit('resetcart');
-    dispatch('init');
+    commit('init');
   }
 }
