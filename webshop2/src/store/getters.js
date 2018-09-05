@@ -12,34 +12,7 @@ export default {
   osszeg(state){
     return Math.round(state.rendeles.reduce((o,v)=>o+v.egysar*v.alap,0)/5)*5;
   },
-  csaktermekek(state){
-    return state.csaktermekek;
-  },
-  rendeles(state){
-    return state.rendeles;
-  },
-  species(state){
-    return state.species;
-  },
-  selected(state){
-    return state.selected;
-  },
-  sortType(state){
-    return state.sortType;
-  },
-  sortOptions(state){
-    return state.sortOptions;
-  },
-  search(state){
-    return state.search;
-  },
-  szurttombhossz(state){
-    return state.szurttombhossz;
-  },
-  itemsPerRow(state){
-    return state.itemsPerRow;
-  },
-  pageNumber(state){
-    return state.pageNumber;
+  rendeleshossz(state){
+    return state.rendeles.length;
   }
 }
