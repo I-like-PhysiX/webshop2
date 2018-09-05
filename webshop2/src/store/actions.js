@@ -10,10 +10,27 @@ export default {
     }).then(() =>{
       commit('create_selection');
     }).then(() =>{
-      commit('init');
+      dispatch('init');
     })
     .catch((error) => {
       console.log(error);
     });
+  },
+  szur( {commit} ) {
+    commit('szur');
+    commit('categoryrouter');
+  },
+  szur2( {commit} ) {
+    commit('szur2');
+    commit('searchrouter');
+  },
+  init( {commit} ) {
+    commit('init');
+    commit('initrouter');
+  },
+  reset_and_init( {commit, dispatch} ) {
+    commit('onReset');
+    commit('resetcart');
+    dispatch('init');
   }
 }
