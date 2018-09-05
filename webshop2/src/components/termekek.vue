@@ -39,8 +39,7 @@
 
 <script>
 
-import {mapGetters} from 'vuex';
-import { mapMutations } from 'vuex';
+import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 
 export default {
   name: 'termekek',
@@ -57,7 +56,8 @@ export default {
     console.log("termekek init");
   },
   computed: {
-    ...mapGetters(['paginatedData','itemsPerRow','szurttombhossz'])
+    ...mapGetters(['paginatedData']),
+    ...mapState(['itemsPerRow','szurttombhossz'])
   }
 }
 </script>
