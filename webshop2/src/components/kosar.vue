@@ -58,8 +58,7 @@
 
 <script>
 
-import {mapGetters} from 'vuex';
-import { mapMutations } from 'vuex';
+import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 
 export default {
   name: 'kosar',
@@ -78,7 +77,8 @@ export default {
     console.log('kosar init');
   },
   computed: {
-    ...mapGetters(['rendeles','osszeg'])
+    ...mapGetters(['osszeg']),
+    ...mapState(['rendeles'])
   }
 }
 </script>
