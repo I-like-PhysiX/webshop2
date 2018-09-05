@@ -20,7 +20,7 @@
           size="md"
           variant="dark"
           style="text-align: center">
-          {{rendeles.length}} tétel
+          {{rendeleshossz}} tétel
         </b-btn>
         <b-btn
         class="exPopoverReactive1"
@@ -89,9 +89,7 @@
 
 <script>
 
-import {mapGetters} from 'vuex';
-import { mapMutations } from 'vuex';
-import { mapActions } from 'vuex';
+import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 import paginatedData from './components/paginatedData.vue';
 
 export default {
@@ -108,25 +106,26 @@ export default {
 
   },
   methods: {
-    ...mapMutations(['create_selection','init','initrouter','basketrouter','szur','szur2']),
-    ...mapActions(['loadData'])
+    ...mapMutations(['create_selection','initrouter','basketrouter']),
+    ...mapActions(['loadData','szur','szur2','init'])
   },
   mounted() {
     this.loadData();
     console.log("App init");
   },
   computed: {
-    ...mapGetters(['sortOptions','sortType','species','rendeles','csaktermekek']),
+    ...mapGetters(['rendeleshossz']),
+    ...mapState(['csaktermekek','sortOptions','sortType','species']),
     selected:{
-      get(){ return this.$store.getters.selected; },
+      get(){ return this.$store.state.selected; },
       set( value ){ this.$store.commit("selected", value );}
     },
     sortType:{
-      get(){ return this.$store.getters.sortType; },
+      get(){ return this.$store.state.sortType; },
       set( value ){ this.$store.commit("sortType", value );}
     },
     search:{
-      get(){ return this.$store.getters.search; },
+      get(){ return this.$store.state.search; },
       set( value ){ this.$store.commit("search", value );}
     }
   }
