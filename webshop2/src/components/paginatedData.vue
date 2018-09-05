@@ -10,8 +10,7 @@
 
 <script>
 
-import {mapGetters} from 'vuex';
-import { mapMutations } from 'vuex';
+import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 
 export default {
 
@@ -30,7 +29,8 @@ export default {
     console.log("paginatedData init");
   },
   computed: {
-    ...mapGetters(['pageCount','pageNumber']),
+    ...mapGetters(['pageCount']),
+    ...mapState(['pageNumber'])
   }
 }
 </script>
