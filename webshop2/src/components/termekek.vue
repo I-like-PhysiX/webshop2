@@ -21,14 +21,12 @@
           <p class="card-text" style="color: green;" v-if="elem.raktaron">Raktáron</p>
           <p class="card-text" style="color: red;" v-else>Elfogyott</p>
           <div
-          v-if="elem.egys=='kg'"
-          v-model="elem.alap">
-          <b-button :disabled="!elem.raktaron" v-on:click="addtocart(elem, 0.1)">Kosárba</b-button>
+          v-if="elem.egys=='kg'">
+          <b-button :disabled="!elem.raktaron" v-on:click="addtocart({elem: elem, step: 0.1})">Kosárba</b-button>
         </div>
         <div
-        v-if="elem.egys!='kg'"
-        v-model="elem.alap">
-        <b-button :disabled="!elem.raktaron" v-on:click="addtocart(elem, 1)">Kosárba</b-button>
+        v-if="elem.egys!='kg'">
+        <b-button :disabled="!elem.raktaron" v-on:click="addtocart({elem: elem, step: 1})">Kosárba</b-button>
       </div>
     </b-card>
   </div>
