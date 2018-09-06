@@ -7,15 +7,21 @@ export default {
   tomb(state, adat){
     state.tomb=adat;
   },
-  addtocart(state, elem, step){
-    elem.alap = Math.round((elem.alap + step) * 10) / 10;
-    state.rendeles.push(elem);
-    state.rendeles=Array.from(new Set(state.rendeles));
+  addtocart(state, payload){
+    let talalat = state.rendeles.find(termek => termek.id == payload.elem.id);
+    if (talalat) {
+      talalat.alap = Math.round((talalat.alap + payload.step) * 10) / 10;
+      talalat.reszosszeg = Math.round(talalat.alap * talalat.egysar);
+    } else {
+      state.rendeles.push(payload.elem);
+      payload.elem.alap = payload.step;
+      payload.elem.reszosszeg = Math.round(payload.elem.alap * payload.elem.egysar);
+    }
   },
-  removefromcart(elem, step){
-    elem.alap = Math.round((elem.alap - step) * 10) / 10;
-    if (elem.alap==0){
-      del(elem);
+  removefromcart(state, payload){
+    payload.elem.alap = Math.round((payload.elem.alap - payload.step) * 10) / 10;
+    if (payload.elem.alap==0){
+      state.rendeles.splice(state.rendeles.indexOf(payload.elem), 1);
     }
   },
   del(state, elem){
