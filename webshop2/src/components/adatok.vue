@@ -103,6 +103,7 @@ export default {
       this.$refs.myModalRef.show();
     },
     hideModal () {
+      this.$refs.myModalRef.hide();
       this.reset_and_init();
     }
   },
