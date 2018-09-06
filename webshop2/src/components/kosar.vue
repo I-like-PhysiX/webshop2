@@ -20,17 +20,15 @@
                 <td>{{ elem.egysar }}/{{ elem.egys }}</td>
                 <td>
                   <div
-                  v-if="elem.egys=='kg'"
-                  v-model="elem.alap">
-                  <b-button v-on:click="removefromcart(elem, 0.1)">-</b-button>
-                  <b-button :disabled="elem.alap == elem.ossz ? true : false" v-on:click="addtocart(elem, 0.1)">+</b-button>
+                  v-if="elem.egys=='kg'">
+                  <b-button v-on:click="removefromcart({elem: elem, step: 0.1})">-</b-button>
+                  <b-button :disabled="elem.alap == elem.ossz ? true : false" v-on:click="addtocart({elem: elem, step: 0.1})">+</b-button>
                   {{elem.alap}} {{elem.egys}}
                 </div>
                 <div
-                v-if="elem.egys!='kg'"
-                v-model="elem.alap">
-                <b-button v-on:click="removefromcart(elem, 1)">-</b-button>
-                <b-button :disabled="elem.alap == elem.ossz ? true : false" v-on:click="addtocart(elem, 1)">+</b-button>
+                v-if="elem.egys!='kg'">
+                <b-button v-on:click="removefromcart({elem: elem, step: 1})">-</b-button>
+                <b-button :disabled="elem.alap == elem.ossz ? true : false" v-on:click="addtocart({elem: elem, step: 1})">+</b-button>
                 {{elem.alap}} {{elem.egys}}
               </div>
             </td>
