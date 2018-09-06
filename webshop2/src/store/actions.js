@@ -28,9 +28,9 @@ export default {
     commit('init');
     commit('initrouter');
   },
-  reset_and_init( {commit, dispatch} ) {
+  reset_and_init( {dispatch, commit} ){
     commit('onReset');
     commit('resetcart');
-    commit('init');
+    dispatch('init');
   }
 }
