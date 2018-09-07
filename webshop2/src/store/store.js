@@ -28,8 +28,9 @@ export const store = new Vuex.Store({
     input1: '',
     input2: '',
     input3: '',
+    input3state: null,
     input4: '',
-    input5: []
+    input5: [],
   },
   getters: getters,
   mutations: mutations,
