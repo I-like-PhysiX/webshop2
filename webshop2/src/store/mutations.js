@@ -114,6 +114,11 @@ input2(state, data){
 },
 input3(state, data){
   state.input3=data;
+  if((Number(state.input3) + Number(state.input3)) == 2*Number(state.input3)){
+    state.input3state=null;
+  }else {
+    state.input3state=false;
+  }
 },
 input4(state, data){
   state.input4=data;
