@@ -40,9 +40,13 @@
   <b-form-input id="exampleInput3"
   type="tel"
   v-model="input3"
+  :state="this.$store.state.input3state"
   required
   placeholder="0630123456">
 </b-form-input>
+<b-form-invalid-feedback id="input3state">
+  Érvénytelen bemeneti formátum!
+</b-form-invalid-feedback>
 </b-form-group>
 <b-form-group id="exampleInputGroup4"
 label="Email cím: *"
@@ -113,6 +117,7 @@ export default {
   },
 
   computed: {
+
     input1:{
       get(){ return this.$store.state.input1; },
       set( value ){ this.$store.commit("input1", value );}
