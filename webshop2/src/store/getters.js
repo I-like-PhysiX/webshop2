@@ -9,8 +9,10 @@ export default {
   paginatedData(state){
     return state.szurttomb.slice(state.pageNumber * state.size, state.pageNumber * state.size + state.size);
   },
-  osszeg(state){
-    return Math.round(state.rendeles.reduce((o,v)=>o+v.egysar*v.alap,0)/5)*5;
+osszeg(state){
+    let osszeg=0;
+    state.rendeles.forEach((v, k) => { osszeg+=v.reszosszeg });
+    return osszeg;
   },
   rendeleshossz(state){
     return state.rendeles.length;
