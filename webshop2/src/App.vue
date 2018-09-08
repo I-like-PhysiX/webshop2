@@ -89,6 +89,7 @@
 
 <script>
 
+/* eslint-disable */
 import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 import paginatedData from './components/paginatedData.vue';
 
