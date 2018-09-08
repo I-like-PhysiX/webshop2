@@ -10,6 +10,7 @@
 
 <script>
 
+/* eslint-disable */
 import {mapGetters, mapMutations, mapActions, mapState} from 'vuex';
 
 export default {
