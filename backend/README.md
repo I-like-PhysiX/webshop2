@@ -1,4 +1,4 @@
-# webshop backend
+# webshop2 backend
 
 > An Express.js project
 
